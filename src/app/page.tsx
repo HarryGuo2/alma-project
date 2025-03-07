@@ -1,101 +1,179 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <div className="relative bg-[#e5ebc5] h-[280px] flex items-center overflow-hidden">
+        <div className="absolute -left-32 -bottom-32">
+          <div className="w-[300px] h-[300px] bg-[#d5e3a8] rounded-full"></div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <div className="absolute -left-16 -bottom-16">
+          <div className="w-[300px] h-[300px] bg-[#c8da8b] rounded-full"></div>
+        </div>
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-2xl">
+            <div className="mb-8">
+              <h1 className="text-2xl font-medium text-black mb-1">almā</h1>
+            </div>
+            <h2 className="text-[40px] leading-tight font-bold text-black">
+              Get An Assessment<br />
+              Of Your Immigration Case
+            </h2>
+          </div>
+        </div>
+      </div>
+
+      {/* Form Section */}
+      <div className="container mx-auto px-6 py-16">
+        <div className="max-w-2xl mx-auto">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-12 h-12">
+              <Image
+                src="/document-icon.svg"
+                alt="Document"
+                width={48}
+                height={48}
+                className="w-full h-full opacity-70"
+              />
+            </div>
+            <div>
+              <h3 className="text-xl font-medium text-gray-900">
+                Want to understand your visa options?
+              </h3>
+              <p className="mt-2 text-gray-600 text-sm">
+                Submit the form below and our team of experienced attorneys will review your information and send a preliminary assessment of your case based on your goals.
+              </p>
+            </div>
+          </div>
+
+          <form className="space-y-8">
+            <div className="grid grid-cols-1 gap-6">
+              <div>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  placeholder="First Name"
+                  className="block w-full px-4 py-3 rounded-md border-gray-200 bg-gray-50/50 focus:ring-0 focus:border-gray-300 placeholder-gray-500"
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  placeholder="Last Name"
+                  className="block w-full px-4 py-3 rounded-md border-gray-200 bg-gray-50/50 focus:ring-0 focus:border-gray-300 placeholder-gray-500"
+                />
+              </div>
+              <div>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                  className="block w-full px-4 py-3 rounded-md border-gray-200 bg-gray-50/50 focus:ring-0 focus:border-gray-300 placeholder-gray-500"
+                />
+              </div>
+              <div>
+                <select
+                  id="country"
+                  name="country"
+                  defaultValue=""
+                  className="block w-full px-4 py-3 rounded-md border-gray-200 bg-gray-50/50 focus:ring-0 focus:border-gray-300 text-gray-500"
+                >
+                  <option value="" disabled>Country of Citizenship</option>
+                  <option value="US">United States</option>
+                  <option value="CN">China</option>
+                  <option value="IN">India</option>
+                  {/* Add more countries */}
+                </select>
+              </div>
+              <div>
+                <input
+                  type="url"
+                  id="website"
+                  name="website"
+                  placeholder="LinkedIn/Personal Website URL"
+                  className="block w-full px-4 py-3 rounded-md border-gray-200 bg-gray-50/50 focus:ring-0 focus:border-gray-300 placeholder-gray-500"
+                />
+              </div>
+            </div>
+
+            <div>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12">
+                  <Image
+                    src="/visa-icon.svg"
+                    alt="Visa"
+                    width={48}
+                    height={48}
+                    className="w-full h-full opacity-70"
+                  />
+                </div>
+                <h3 className="text-xl font-medium text-gray-900">
+                  Visa categories of interest?
+                </h3>
+              </div>
+              <div className="space-y-4 ml-16">
+                {["O-1", "EB1A", "EB-2 NIW", "I don't know"].map((option) => (
+                  <div key={option} className="flex items-center">
+                    <input
+                      type="radio"
+                      id={option}
+                      name="visaCategory"
+                      value={option}
+                      className="h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                    />
+                    <label htmlFor={option} className="ml-3 text-base text-gray-700">
+                      {option}
+                    </label>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12">
+                  <Image
+                    src="/heart-icon.svg"
+                    alt="Help"
+                    width={48}
+                    height={48}
+                    className="w-full h-full opacity-70"
+                  />
+                </div>
+                <h3 className="text-xl font-medium text-gray-900">
+                  How can we help you?
+                </h3>
+              </div>
+              <div className="ml-16">
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  className="block w-full px-4 py-3 rounded-md border-gray-200 bg-gray-50/50 focus:ring-0 focus:border-gray-300 placeholder-gray-500"
+                  placeholder="What is your current status and when does it expire? What is your past immigration history? Are you looking for a long-term permanent residence or a short-term employment visa? Are there any timeline considerations?"
+                />
+              </div>
+            </div>
+
+            <div className="pt-4">
+              <button
+                type="submit"
+                className="w-full bg-black text-white py-4 px-4 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 font-medium"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
   );
 }
